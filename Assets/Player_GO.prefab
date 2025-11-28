@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 541448976689623393}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.876, y: 0, z: 0}
+  m_LocalPosition: {x: -0.664, y: 0, z: 0.766}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 372675729208138970}
   - component: {fileID: 8384822629285859971}
   - component: {fileID: 1578351419565703748}
+  - component: {fileID: 3758498305303458530}
   m_Layer: 0
   m_Name: Player_Visual_Object
   m_TagString: Untagged
@@ -252,6 +253,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &3758498305303458530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689866002321054890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd378e89a753cd48b14f5497ab05fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerBodyVisuals
+  ShowTopMostFoldoutHeaderGroup: 1
+  visualRoot: {fileID: 1008363719015463809}
+  avatar: {fileID: 251004257384507071}
+  maxLeanAngle: 12
+  leanResponsiveness: 6
+  leanReturnSpeed: 4
 --- !u!1 &2204430971459422534
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +287,12 @@ GameObject:
   - component: {fileID: 359657446833099637}
   - component: {fileID: -2421708175147023283}
   - component: {fileID: -9014805723344554180}
+  - component: {fileID: 2455604440042348017}
+  - component: {fileID: 4488701343448728275}
+  - component: {fileID: 6735940332920000013}
+  - component: {fileID: 6423374965871741597}
+  - component: {fileID: 7166417610349235207}
+  - component: {fileID: 7226780015842658339}
   m_Layer: 0
   m_Name: Player_GO
   m_TagString: Player
@@ -331,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerBodyVisuals
   ShowTopMostFoldoutHeaderGroup: 1
   visualRoot: {fileID: 3527564169468155324}
-  avatar: {fileID: 2471952372972871401}
+  avatar: {fileID: 251004257384507071}
   maxLeanAngle: 12
   leanResponsiveness: 6
   leanReturnSpeed: 4
@@ -377,9 +402,9 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   moveSpeed: 8
   maxVelocity: 10
-  rb: {fileID: 0}
-  playerCamera: {fileID: 0}
-  emotionState: {fileID: 0}
+  rb: {fileID: 2881645346501668944}
+  playerCamera: {fileID: 5064489780841357373}
+  emotionState: {fileID: 4488701343448728275}
 --- !u!114 &359657446833099637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,8 +418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerFocusTarget
   ShowTopMostFoldoutHeaderGroup: 1
-  avatar: {fileID: 2471952372972871401}
-  handController: {fileID: 1293338933442002246}
+  avatar: {fileID: 251004257384507071}
+  handController: {fileID: 7226780015842658339}
   maxFocusDistance: 5
   focusMask:
     serializedVersion: 2
@@ -429,7 +454,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 5064489780841357373}
 --- !u!114 &-9014805723344554180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,9 +468,130 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerInputController
   ShowTopMostFoldoutHeaderGroup: 1
-  avatar: {fileID: 0}
-  handController: {fileID: 0}
+  avatar: {fileID: 251004257384507071}
+  handController: {fileID: 7226780015842658339}
   lookSensitivity: 120
+--- !u!114 &2455604440042348017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204430971459422534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1632609c0c4bb00479b270eef63a4f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerStatusUI
+  ShowTopMostFoldoutHeaderGroup: 1
+  playerMagnetAttach: {fileID: 2040319493037814449}
+  magnetText: {fileID: 1123852704804660900}
+--- !u!114 &4488701343448728275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204430971459422534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dbb81e56236c3b429b90a5e155f1fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.EmotionState
+  ShowTopMostFoldoutHeaderGroup: 1
+  emotionDefinitions: []
+  fearIntensity:
+    m_InternalValue: 0
+  abandonmentIntensity:
+    m_InternalValue: 0
+  denialIntensity:
+    m_InternalValue: 0
+  angerIntensity:
+    m_InternalValue: 0
+--- !u!114 &6735940332920000013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204430971459422534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8dc7573bff016045b256bd8c3c67e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerEmotionApplier
+  ShowTopMostFoldoutHeaderGroup: 1
+  avatar: {fileID: 251004257384507071}
+  emotionState: {fileID: 4488701343448728275}
+  magnetAttach: {fileID: 2040319493037814449}
+  swayTorque: 5
+  stumbleImpulse: 2
+  nearOtherPlayerRadius: 4
+--- !u!114 &6423374965871741597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204430971459422534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd378e89a753cd48b14f5497ab05fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerBodyVisuals
+  ShowTopMostFoldoutHeaderGroup: 1
+  visualRoot: {fileID: 3527564169468155324}
+  avatar: {fileID: 251004257384507071}
+  maxLeanAngle: 12
+  leanResponsiveness: 6
+  leanReturnSpeed: 4
+--- !u!114 &7166417610349235207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204430971459422534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff49490735ce1ef41b46d0aef1083f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerEmotionVisuals
+  ShowTopMostFoldoutHeaderGroup: 1
+  avatar: {fileID: 251004257384507071}
+  emotionState: {fileID: 4488701343448728275}
+  handController: {fileID: 7226780015842658339}
+  jitterFrequency: 10
+  handJitterFrequency: 12
+--- !u!114 &7226780015842658339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204430971459422534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de0acf1867abbb449a9fbd58993be1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerHandController
+  ShowTopMostFoldoutHeaderGroup: 1
+  avatar: {fileID: 251004257384507071}
+  leftHand: {fileID: 9201580240756198369}
+  rightHand: {fileID: 645197027299076443}
+  leftHandRb: {fileID: 3023313879317505439}
+  rightHandRb: {fileID: 8407148234025994949}
+  handDistance: 1.2
+  handHeight: 1.2
+  handSpring: 200
+  handDamping: 25
+  grabRange: 2.5
+  grabMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  tossForce: 6
+  focusAttractionStrength: 4
+  focusMaxDistance: 4
 --- !u!1 &3231235555141583421
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +738,7 @@ Transform:
   m_GameObject: {fileID: 4068975225879783077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.80666673, y: -0.22000003, z: -4.846667}
+  m_LocalPosition: {x: 0, y: 0.6153333, z: 0.6466667}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -730,7 +876,7 @@ Transform:
   m_GameObject: {fileID: 6218014060797046562}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.652, y: 0, z: -0.722}
+  m_LocalPosition: {x: 0.406, y: 0, z: 0.59}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -852,14 +998,7 @@ GameObject:
   - component: {fileID: 5411504717026734882}
   - component: {fileID: 6504270506525134866}
   - component: {fileID: 8698912245277772316}
-  - component: {fileID: 4436091104311319182}
-  - component: {fileID: 2471952372972871401}
-  - component: {fileID: 2908612690254590779}
   - component: {fileID: 2040319493037814449}
-  - component: {fileID: 1293338933442002246}
-  - component: {fileID: 5506128516496463600}
-  - component: {fileID: 1078909707601122877}
-  - component: {fileID: 3113392247760826944}
   m_Layer: 0
   m_Name: Player_Code_Object
   m_TagString: Untagged
@@ -880,10 +1019,10 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6213800720349744480}
   - {fileID: 9201580240756198369}
   - {fileID: 645197027299076443}
   - {fileID: 931308072459694779}
+  - {fileID: 6213800720349744480}
   m_Father: {fileID: 1008363719015463809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &5411504717026734882
@@ -982,66 +1121,6 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &4436091104311319182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224105216923392557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce124998e1611f8498fe4d953b421c0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputController
-  ShowTopMostFoldoutHeaderGroup: 1
-  avatar: {fileID: 2471952372972871401}
-  handController: {fileID: 1293338933442002246}
-  lookSensitivity: 120
---- !u!114 &2471952372972871401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224105216923392557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb41eb9bf99adb145871678d5a46ac20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerAvatar
-  ShowTopMostFoldoutHeaderGroup: 1
-  moveSpeed: 8
-  maxVelocity: 10
-  rb: {fileID: 6504270506525134866}
-  playerCamera: {fileID: 5064489780841357373}
-  emotionState: {fileID: 2908612690254590779}
---- !u!114 &2908612690254590779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224105216923392557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dbb81e56236c3b429b90a5e155f1fe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.EmotionState
-  ShowTopMostFoldoutHeaderGroup: 1
-  emotionDefinitions:
-  - {fileID: 11400000, guid: 6dfdc2e1300937c4faf0e753ec53482f, type: 2}
-  - {fileID: 11400000, guid: 5f2fb43932570cb4e81613bebd458c5a, type: 2}
-  - {fileID: 11400000, guid: aa54525dae30adb45b308f2d258f890f, type: 2}
-  - {fileID: 11400000, guid: 1747c4d6d3632464194e20e5f9bdb7bc, type: 2}
-  fearIntensity:
-    m_InternalValue: 0
-  abandonmentIntensity:
-    m_InternalValue: 0
-  denialIntensity:
-    m_InternalValue: 0
-  angerIntensity:
-    m_InternalValue: 0
 --- !u!114 &2040319493037814449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,103 +1134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.MagnetAttachPoint
   ShowTopMostFoldoutHeaderGroup: 1
-  emotionState: {fileID: 2908612690254590779}
---- !u!114 &1293338933442002246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224105216923392557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de0acf1867abbb449a9fbd58993be1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerHandController
-  ShowTopMostFoldoutHeaderGroup: 1
-  avatar: {fileID: 2471952372972871401}
-  leftHand: {fileID: 9201580240756198369}
-  rightHand: {fileID: 645197027299076443}
-  leftHandRb: {fileID: 3023313879317505439}
-  rightHandRb: {fileID: 8407148234025994949}
-  handDistance: 1.2
-  handHeight: 1.2
-  handSpring: 200
-  handDamping: 25
-  grabRange: 2.5
-  grabMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  tossForce: 6
-  focusAttractionStrength: 4
-  focusMaxDistance: 4
---- !u!114 &5506128516496463600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224105216923392557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff49490735ce1ef41b46d0aef1083f3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerEmotionVisuals
-  ShowTopMostFoldoutHeaderGroup: 1
-  avatar: {fileID: 2471952372972871401}
-  emotionState: {fileID: 2908612690254590779}
-  handController: {fileID: 1293338933442002246}
-  jitterFrequency: 10
-  handJitterFrequency: 12
---- !u!114 &1078909707601122877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224105216923392557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8dc7573bff016045b256bd8c3c67e3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerEmotionApplier
-  ShowTopMostFoldoutHeaderGroup: 1
-  avatar: {fileID: 2471952372972871401}
-  emotionState: {fileID: 2908612690254590779}
-  magnetAttach: {fileID: 2040319493037814449}
-  swayTorque: 5
-  stumbleImpulse: 2
-  nearOtherPlayerRadius: 4
---- !u!114 &3113392247760826944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224105216923392557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: 
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 5064489780841357373}
+  emotionState: {fileID: 0}
 --- !u!1 &6523236679624005198
 GameObject:
   m_ObjectHideFlags: 0

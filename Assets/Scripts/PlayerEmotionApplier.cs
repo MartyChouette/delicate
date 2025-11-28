@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EmotionBank
 {
-    [RequireComponent(typeof(PlayerAvatar))]
+   
     public class PlayerEmotionApplier : NetworkBehaviour
     {
         public PlayerAvatar avatar;

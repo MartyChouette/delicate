@@ -119,8 +119,10 @@ namespace EmotionBank
         // -------------------------------------------------------------------
         private Vector3 GetAbandonmentDirection()
         {
-            var players = FindObjectsOfType<PlayerAvatar>();
-            if (players.Length == 0) return Vector3.zero;
+            // New API:
+            var players = UnityEngine.Object.FindObjectsByType<PlayerAvatar>(FindObjectsSortMode.None);
+            if (players == null || players.Length == 0)
+                return Vector3.zero;
 
             Vector3 avg = Vector3.zero;
             foreach (var p in players)
@@ -136,6 +138,7 @@ namespace EmotionBank
 
             return dir.normalized;
         }
+
 
         // -------------------------------------------------------------------
         // Helper: toggles renderers & colliders for denial "phasing"

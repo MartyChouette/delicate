@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace EmotionBank
 {
-    [RequireComponent(typeof(PlayerAvatar), typeof(PlayerInput))]
+   
     public class PlayerInputController : NetworkBehaviour
     {
         public PlayerAvatar avatar;
