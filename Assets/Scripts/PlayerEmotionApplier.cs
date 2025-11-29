@@ -106,13 +106,22 @@ namespace EmotionBank
         private float GetNearestOtherPlayerDistance()
         {
             float nearest = float.MaxValue;
-            foreach (var other in FindObjectsOfType<PlayerAvatar>())
+
+            // NEW Unity 6 API
+            var players = UnityEngine.Object.FindObjectsByType<PlayerAvatar>(FindObjectsSortMode.None);
+
+            foreach (var other in players)
             {
-                if (other == avatar) continue;
+                if (other == avatar)
+                    continue;
+
                 float d = Vector3.Distance(avatar.transform.position, other.transform.position);
-                if (d < nearest) nearest = d;
+                if (d < nearest)
+                    nearest = d;
             }
+
             return nearest == float.MaxValue ? nearest : nearest;
         }
+
     }
 }

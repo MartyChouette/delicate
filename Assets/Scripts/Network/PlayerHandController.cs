@@ -109,10 +109,8 @@ namespace EmotionBank
             if (!_rightLocked && !_rightPressed)
                 ReleaseHandServerRpc(HandSide.Right);
         }
-
-        // ───────────────────── Focus from PlayerFocusTarget ─────────────────────
-
-        [ServerRpc]
+        // Focus from PlayerFocusTarget
+        [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
         public void SetFocusPointServerRpc(Vector3 point, bool hasFocus)
         {
             _hasFocus = hasFocus;
@@ -121,7 +119,7 @@ namespace EmotionBank
 
         // ───────────────────── Server-side grabbing ─────────────────────
 
-        [ServerRpc]
+        [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
         private void TryGrabClosestServerRpc(HandSide side)
         {
             Transform handTf = side == HandSide.Left ? leftHand : rightHand;
@@ -164,7 +162,7 @@ namespace EmotionBank
             }
         }
 
-        [ServerRpc]
+        [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
         private void ReleaseHandServerRpc(HandSide side)
         {
             Transform handTf = side == HandSide.Left ? leftHand : rightHand;
@@ -194,8 +192,8 @@ namespace EmotionBank
             TossMagnetServerRpc();
         }
 
-        [ServerRpc]
-        private void TossMagnetServerRpc(ServerRpcParams rpcParams = default)
+        [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
+        private void TossMagnetServerRpc()
         {
             Magnet mag = _leftHeldMagnet != null ? _leftHeldMagnet : _rightHeldMagnet;
             if (mag == null) return;
@@ -222,6 +220,7 @@ namespace EmotionBank
             mag.transform.position = handTf.position;
             mag.rb.AddForce(dir * tossForce, ForceMode.VelocityChange);
         }
+
 
         private void ClearHandJoint(HandSide side)
         {

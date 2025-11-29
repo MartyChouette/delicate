@@ -151,7 +151,6 @@ GameObject:
   - component: {fileID: 372675729208138970}
   - component: {fileID: 8384822629285859971}
   - component: {fileID: 1578351419565703748}
-  - component: {fileID: 3758498305303458530}
   m_Layer: 0
   m_Name: Player_Visual_Object
   m_TagString: Untagged
@@ -253,24 +252,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &3758498305303458530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689866002321054890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cd378e89a753cd48b14f5497ab05fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerBodyVisuals
-  ShowTopMostFoldoutHeaderGroup: 1
-  visualRoot: {fileID: 1008363719015463809}
-  avatar: {fileID: 251004257384507071}
-  maxLeanAngle: 12
-  leanResponsiveness: 6
-  leanReturnSpeed: 4
 --- !u!1 &2204430971459422534
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +262,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1008363719015463809}
   - component: {fileID: 2254112910414750313}
-  - component: {fileID: 3643389309342878822}
   - component: {fileID: 2881645346501668944}
   - component: {fileID: 251004257384507071}
   - component: {fileID: 359657446833099637}
@@ -293,6 +273,7 @@ GameObject:
   - component: {fileID: 6423374965871741597}
   - component: {fileID: 7166417610349235207}
   - component: {fileID: 7226780015842658339}
+  - component: {fileID: 7884258875341577199}
   m_Layer: 0
   m_Name: Player_GO
   m_TagString: Player
@@ -313,8 +294,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3527564169468155324}
   - {fileID: 4751215489753648740}
+  - {fileID: 3527564169468155324}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2254112910414750313
@@ -342,24 +323,6 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &3643389309342878822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204430971459422534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cd378e89a753cd48b14f5497ab05fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.PlayerBodyVisuals
-  ShowTopMostFoldoutHeaderGroup: 1
-  visualRoot: {fileID: 3527564169468155324}
-  avatar: {fileID: 251004257384507071}
-  maxLeanAngle: 12
-  leanResponsiveness: 6
-  leanReturnSpeed: 4
 --- !u!54 &2881645346501668944
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -438,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
   m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -451,8 +414,8 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 5064489780841357373}
 --- !u!114 &-9014805723344554180
@@ -524,9 +487,9 @@ MonoBehaviour:
   avatar: {fileID: 251004257384507071}
   emotionState: {fileID: 4488701343448728275}
   magnetAttach: {fileID: 2040319493037814449}
-  swayTorque: 5
-  stumbleImpulse: 2
-  nearOtherPlayerRadius: 4
+  swayTorque: 0.05
+  stumbleImpulse: 0.02
+  nearOtherPlayerRadius: 0.04
 --- !u!114 &6423374965871741597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,6 +555,29 @@ MonoBehaviour:
   tossForce: 6
   focusAttractionStrength: 4
   focusMaxDistance: 4
+--- !u!136 &7884258875341577199
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2204430971459422534}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3231235555141583421
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,14 +741,14 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -775,9 +761,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -826,7 +812,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -996,8 +982,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4751215489753648740}
   - component: {fileID: 5411504717026734882}
-  - component: {fileID: 6504270506525134866}
-  - component: {fileID: 8698912245277772316}
   - component: {fileID: 2040319493037814449}
   m_Layer: 0
   m_Name: Player_Code_Object
@@ -1048,79 +1032,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &6504270506525134866
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224105216923392557}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &8698912245277772316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224105216923392557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.Components.NetworkTransform
-  ShowTopMostFoldoutHeaderGroup: 1
-  NetworkTransformExpanded: 0
-  AutoOwnerAuthorityTickOffset: 1
-  PositionInterpolationType: 1
-  RotationInterpolationType: 1
-  ScaleInterpolationType: 1
-  PositionLerpSmoothing: 1
-  PositionMaxInterpolationTime: 0.1
-  RotationLerpSmoothing: 1
-  RotationMaxInterpolationTime: 0.1
-  ScaleLerpSmoothing: 1
-  ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 0
-  TickSyncChildren: 0
-  UseUnreliableDeltas: 0
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  SwitchTransformSpaceWhenParented: 0
-  Interpolate: 1
-  SlerpPosition: 0
 --- !u!114 &2040319493037814449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,7 +1045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EmotionBank.MagnetAttachPoint
   ShowTopMostFoldoutHeaderGroup: 1
-  emotionState: {fileID: 0}
+  emotionState: {fileID: 4488701343448728275}
 --- !u!1 &6523236679624005198
 GameObject:
   m_ObjectHideFlags: 0
